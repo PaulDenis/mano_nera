@@ -1,30 +1,51 @@
 <template>
   <div id="app">
     <img alt="La Mano Nera logo" src="./assets/logo.png" class="logo">
-    <img src="./assets/writing_variants/la_mano_nera_scritta.png" alt="la mano nera" class="writing">
+    <div v-if="current_page == 'landing'">
+      <img src="./assets/writing_variants/la_mano_nera_scritta.png" alt="la mano nera" class="writing">
+      <div class="home_square left">
+        <h2>Blog</h2>
+        <p>Premi qui per andare direttamente al blog <i class="fas fa-arrow-right arrow_right"></i></p>
+      </div>
+      <div class="home_square right">
+        <h2>Candidati subito</h2>
+        <p>Premi qui per andare alla pagina delle candidature! <i class="fas fa-arrow-right arrow_right"></i></p>
+      </div>
+      <h2 id="redirect_home" @click="redirect_home()"><a href="#">Vai alla Home<i class="fas fa-arrow-right arrow_right"></i></a></h2>
+    </div>
+
+    <div v-else-if="current_page == 'home'">
+      <Header :page='current_page'/>
+      <Home />
+    </div>
+    
     <!-- <HelloWorld msg="Welcome to La Mano Nera official website"/> -->
     <!-- <Header /> I don't know if to put the header on the Landing Page -->
-    <div class="home_square left">
-      <h2>Blog</h2>
-      <p>Premi qui per andare direttamente al blog <i class="fas fa-arrow-right arrow_right"></i></p>
-    </div>
-    <div class="home_square right">
-      <h2>Candidati subito</h2>
-      <p>Premi qui per andare alla pagina delle candidature! <i class="fas fa-arrow-right arrow_right"></i></p>
-    </div>
-    <h2 id="redirect_home"><a href="#">Vai alla Home<i class="fas fa-arrow-right arrow_right"></i></a></h2>
+    
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-// import Header from './components/Header.vue'
+import Header from './components/Header.vue'
+import Home from './components/Home.vue'
 
 export default {
   name: 'App',
   components: {
     // HelloWorld
-    // Header
+    Header,
+    Home
+  },
+  data() {
+    return {
+      current_page: 'landing',
+    }
+  },
+  methods: {
+    redirect_home() {
+      this.current_page = 'home';
+    }
   }
 }
 </script>
@@ -41,8 +62,6 @@ export default {
     background-color: black;
     overflow: hidden;
   }
-
-
 
   .logo {
     height: 99.5vh;
@@ -68,11 +87,14 @@ export default {
 
   .home_square {
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     top: 50%;
     transform: translateY(-50%);
     width: 300px;
     height: 150px;
-    background-color: rgba($color: #ffffff, $alpha: .05);
+    background-color: rgba($color: #ffffff, $alpha: .1);
     border-radius: 20px;
     text-align: center;
     color: white;
@@ -80,8 +102,8 @@ export default {
       cursor: pointer;
       color: #960018;
     }
-       animation-name: fade_in_extended;
-      animation-duration: 6s;
+    animation-name: fade_in_extended;
+    animation-duration: 6s;
   }
 
   .left {

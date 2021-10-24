@@ -1,19 +1,39 @@
 <template>
   <div class=nav_bar>
       <ul class="inline_menu">
-          <li><img src="../assets/writing_variants/la_mano_nera_scritta.png" alt="la mano nera"></li>
-          <li class="active"><p>Home</p></li>
-          <li><p>About us</p></li>
-          <li><p>About our Members</p></li>
-          <li><p>Blog</p></li>
-          <li><p>Trade</p></li>
+          <li
+          @click="page = 'home'"
+          ><img src="../assets/writing_variants/la_mano_nera_scritta.png" alt="la mano nera"></li>
+          <li 
+          :class="page == 'home' ? 'active' : ''"
+          @click="page = 'home'"
+          ><p>Home</p></li>
+          <li
+          :class="page == 'about' ? 'active' : ''"
+          @click="page = 'about'"
+          ><p>About us</p></li>
+          <li
+          :class="page == 'members' ? 'active' : ''"
+          @click="page = 'members'"
+          ><p>About our Members</p></li>
+          <li
+          :class="page == 'blog' ? 'active' : ''"
+          @click="page = 'blog'"
+          ><p>Blog</p></li>
+          <li
+          :class="page == 'trade' ? 'active' : ''"
+          @click="page = 'trade'"
+          ><p>Trade</p></li>
       </ul>
   </div>
 </template>
 
 <script>
 export default {
-    name: "Header"
+    name: "Header",
+    props: {
+        page: String 
+    }
 }
 </script>
 
