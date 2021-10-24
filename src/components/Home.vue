@@ -1,6 +1,6 @@
 <template>
   <div>
-      <img src="../assets/writing_variants/la_mano_nera_scritta.png" alt="la mano nera" id="zoom_nera">
+      <img src="../assets/writing_variants/la_mano_nera.png" alt="la mano nera" id="zoom_nera">
   </div>
 </template>
 

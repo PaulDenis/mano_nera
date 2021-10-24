@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <img alt="La Mano Nera logo" src="./assets/logo.png" class="logo">
+    <div id="logo_container">
+      <img alt="La Mano Nera logo" src="./assets/crest.png" class="logo">
+    </div>
     <div v-if="current_page == 'landing'">
-      <img src="./assets/writing_variants/la_mano_nera_scritta.png" alt="la mano nera" class="writing">
+      <img src="./assets/writing_variants/la_mano_nera.png" alt="la mano nera" class="writing">
       <div class="home_square left">
         <h2>Blog</h2>
         <p>Premi qui per andare direttamente al blog <i class="fas fa-arrow-right arrow_right"></i></p>
@@ -63,8 +65,15 @@ export default {
     overflow: hidden;
   }
 
+  #logo_container {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+  }
+
   .logo {
-    height: 99.5vh;
+    height: 50vh;
     margin-left: 50%;
     transform: translateX(-50%);
     opacity: 1;
@@ -73,7 +82,7 @@ export default {
   }
 
   .active {
-    border-bottom: 2px solid #578d36;
+    border-bottom: 2px solid #149633;
   }
 
   .writing {

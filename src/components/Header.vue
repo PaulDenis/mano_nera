@@ -3,7 +3,7 @@
       <ul class="inline_menu">
           <li
           @click="page = 'home'"
-          ><img src="../assets/writing_variants/la_mano_nera_scritta.png" alt="la mano nera"></li>
+          ><img src="../assets/writing_variants/la_mano_nera.png" alt="la mano nera"></li>
           <li 
           :class="page == 'home' ? 'active' : ''"
           @click="page = 'home'"
@@ -61,7 +61,7 @@ export default {
             }
             &:hover > p {
                 transform: scale(1.2);
-                color: #578d36;
+                color: #149633;
 
             }
             img {
