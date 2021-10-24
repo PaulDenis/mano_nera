@@ -1,6 +1,7 @@
 <template>
   <div class=nav_bar>
       <ul class="inline_menu">
+          <li><img src="../assets/writing_variants/la_mano_nera_scritta.png" alt="la mano nera"></li>
           <li class="active"><p>Home</p></li>
           <li><p>About us</p></li>
           <li><p>About our Members</p></li>
@@ -43,20 +44,11 @@ export default {
                 color: #578d36;
 
             }
+            img {
+                height: 100%;
+            }
         }
     }
 }
-
-@keyframes fade_in_extended {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 100;
-    }
-  }
 
 </style>
